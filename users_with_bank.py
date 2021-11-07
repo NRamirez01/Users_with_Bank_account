@@ -33,7 +33,7 @@ class BankAccount:
         while i < len(self.accounts):
             for key in self.accounts[i]:
                 if key == account_type:
-                    print(f"{account_type} account balance is {self.accounts[i][account_type]}")
+                    print(f"{self.name}'s {account_type} account balance is {self.accounts[i][account_type]}")
                     return self
                 else: 
                     i += 1
@@ -62,6 +62,18 @@ class User:
 nate = User("Nate", "Checking", 6000)
 nate = User("Nate", "Savings", 10000)
 nate = User("Nate", "Piggybank", 4000)
+sally = User("Sally", "Checking", 420)
 nate.make_withdrawal("Savings", 1000).make_withdrawal("Savings", 1000).make_withdrawal("Savings", 1000).make_withdrawal("Savings", 1000).display_user_balance("Savings")
 nate.make_deposit("Checking", 1000).make_withdrawal("Checking", 7000).display_user_balance("Checking")
 nate.make_deposit("Piggybank", 1000).display_user_balance("Piggybank")
+sally.display_user_balance("Checking")
+
+# Original attempt to iterate through balances included the following:
+#   account_index = len(BankAccount.accounts[name])-1
+#     if account_index < 1:
+#         BankAccount.accounts[name][account_type] = balance
+#         self.balance = balance 
+#         print(self.balance)
+#     if account_index >= 1:
+#         BankAccount.accounts[name][account_index][account_type] = balance
+#         self.balance = balance 
